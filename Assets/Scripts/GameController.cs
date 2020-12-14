@@ -33,4 +33,12 @@ public class GameController : MonoBehaviour {
             }
         }
     }
+
+    public GameObject ObjectAt(Vector3 pos)
+    {
+        GameObject GO = new GameObject() ;
+        if (Physics.Raycast(new Vector3(pos.x, pos.y, -1), new Vector3(0, 0, 1)))
+            Debug.Log("wokr");
+        return GO;
+    }
 }

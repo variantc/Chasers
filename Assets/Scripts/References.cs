@@ -5,6 +5,7 @@ using UnityEngine;
 public class References : MonoBehaviour {
 
     public GameController gameController;
+    public PlayerController platerController;
     public GameObject tilePrefab;
     public GameObject map;
     

@@ -3503,6 +3503,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 143968281}
+  - component: {fileID: 143968282}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3524,6 +3525,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143968282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 143968280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f4b5d4fc83ef348af9fcbeec9be82c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &144841054
 Prefab:
   m_ObjectHideFlags: 0
@@ -20594,6 +20606,10 @@ Prefab:
     - target: {fileID: 1380360162497612, guid: 58ea79257208a624fa9a79aadf51a6bc, type: 2}
       propertyPath: m_Name
       value: wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58ea79257208a624fa9a79aadf51a6bc, type: 2}
@@ -50294,6 +50310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 1892152565}
+  platerController: {fileID: 143968282}
   tilePrefab: {fileID: 1380360162497612, guid: 4f029a1705a118c419c0cb015e3f5b07, type: 2}
   map: {fileID: 851899739}
 --- !u!114 &1892152565
