@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    float moveBuffer = 0.2f;
+    float moveBuffer = 0.1f;
     float timer = 0f;
 
     References references;
@@ -16,40 +16,37 @@ public class PlayerController : MonoBehaviour {
     
     void Start()
     {
-        ;
     }
 	
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-
         timer += Time.deltaTime;
 
         if (timer > moveBuffer)
         {
-            Vector3 movePos = this.transform.position;
+            Vector3 move = Vector3.zero;
+
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                movePos = this.transform.position + Vector3.up;
+                move = Vector3.up;
             }
             if (Input.GetAxisRaw("Vertical") < 0)
             {
-                movePos = this.transform.position + Vector3.down;
-                this.transform.position = movePos;
+                move = Vector3.down;
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                movePos = this.transform.position + Vector3.right;
-                this.transform.position = movePos;
+                move = Vector3.right;
             }
             if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                movePos = this.transform.position + Vector3.left;
-                this.transform.position = movePos;
+                move = Vector3.left;
             }
-            references.gameController.ObjectAt(movePos);
-                //    this.transform.position = movePos;
-                timer = 0f;
+
+            this.transform.position += move;
+            
+            timer = 0f;
         }
 
     }

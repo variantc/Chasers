@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour {
     public int MapHeight { get { return mapHeight; } }
     public int MapWidth { get { return mapWidth; } }
 
+    public GameObject[,] map;
+
     void Awake()
     {
         references = FindObjectOfType<References>();
@@ -18,7 +20,8 @@ public class GameController : MonoBehaviour {
     }
     
 	void Start () {
-        BuildMap();
+        map = new GameObject[mapWidth, mapHeight];
+        //BuildMap();
 	}
 
     void BuildMap()
@@ -28,17 +31,11 @@ public class GameController : MonoBehaviour {
             for (int j = 0; j < mapHeight; j++)
             {
                 GameObject t = Instantiate(references.tilePrefab, new Vector3(-mapWidth / 2f + i + 0.5f, -mapHeight / 2f + j + 0.5f, 0f), Quaternion.identity);
-                t.transform.SetParent(references.map.transform);
+                map[i, j] = t;
+                t.transform.SetParent(references.mapContainer.transform);
                 t.transform.name = ("Tile:" + i + "," + j);
             }
         }
     }
-
-    public GameObject ObjectAt(Vector3 pos)
-    {
-        GameObject GO = new GameObject() ;
-        if (Physics.Raycast(new Vector3(pos.x, pos.y, -1), new Vector3(0, 0, 1)))
-            Debug.Log("wokr");
-        return GO;
-    }
+    
 }
